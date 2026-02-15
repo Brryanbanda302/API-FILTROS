@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>VUE</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <!-- <script src="https://unpkg.com/axios@1.13.2/dist/axios.min.js"></script> -->
+</head>
+
+<body>
+    <header class="bg-warning text-center text-black">
+        <span class="h2"><strong>VUE</strong></span>
+    </header>
+
+    <section class="container-fluid text-center" id="contenedor">
+        <div class="row">
+            <h2 class="col-12"><strong>VUE API PERSONAJES</strong></h2>
+            <div class="card col-3 p-3 mt-3" v-for="personaje in personajesFiltrados" :key="personaje.id">
+                <img class="cad-img-top" :src="personaje.image" :title="personaje.name">
+                <div class="card-body">
+                    <h5 class="card-title">{{personaje.name}}</h5>
+                    <p class="card-text">{{personaje.ki}}</p>
+                    <h5 class="card-title">{{personaje.race}}</h5>
+                    <a href="#" class="btn btn-danger" @click="personajeSeleccionado = personaje"><strong>VER
+                            MÁS...</strong></a>
+                </div>
+            </div>
+            <div class="row mt-4" v-if="personajeSeleccionado">
+                <div class="col-5">
+                    <div class="card p-3">
+                        <h3>{{ personajeSeleccionado.name }}</h3>
+                        <p><strong>KI:</strong> {{ personajeSeleccionado.ki }}</p>
+                        <p><strong>MAX KI:</strong> {{ personajeSeleccionado.maxKi }}</p>
+                        <p><strong>RAACE:</strong> {{ personajeSeleccionado.race }}</p>
+                        <p><strong>GENDER:</strong> {{ personajeSeleccionado.gender }}</p>
+                        <p><strong>AFFILIATION:</strong> {{ personajeSeleccionado.affiliation }}</p>
+                        <p><strong>DESCRIPTION:</strong> {{ personajeSeleccionado.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="container d-flex justify-content-between">
+            <button class="btn filter-btn btn-warning"
+                @click="filtrarPorCategoria('Saiyan')"><strong>SAIYANS</strong></button>
+            <button class="btn filter-btn btn-warning"
+                @click="filtrarPorCategoria('Namekian')"><strong>NAMEKIANS</strong></button>
+            <button class="btn filter-btn btn-warning"
+                @click="filtrarPorCategoria('Human')"><strong>HUMANS</strong></button>
+            <button class="btn filter-btn btn-warning" @click="filtrarPorCategoria('Frieza Race')"><strong>FRIEZA
+                    RACE</strong></button>
+            <button class="btn filter-btn btn-warning"
+                @click="filtrarPorCategoria('Android')"><strong>ANDROIDS</strong></button>
+        </div>
+        <hr>
+        <span class="h2"><strong>FRAMEWORKS</strong></span>
+        <div class="card col-2 p-3 mt-3" v-for="(personaje, index) in personajesClasificados" :key="personaje.race">
+        </div>
+
+    </section>
+
+    <script src="js/vue3.js"></script>
+    <script src="js/axios.min.js"></script>
+    <!--https://github.com/axios/axios-->
+    <script src="js/funciones.js"></script>
+</body>
+
+</html>

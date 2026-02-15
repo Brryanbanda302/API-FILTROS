@@ -1,0 +1,24 @@
+section {
+    background-color: #ff0000;
+    padding: 20px 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+header{
+    font-family: 'Times New Roman', Times, serif;
+}
+span{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+img{
+    height: 300px !important;
+}
+
+.card{
+    margin-left: 6%;
+    background-color: rgb(246, 197, 0);
+}
